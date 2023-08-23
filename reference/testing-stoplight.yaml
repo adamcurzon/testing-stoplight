@@ -1,0 +1,87 @@
+openapi: 3.1.0
+x-stoplight:
+  id: iuww3wmchh1xq
+info:
+  title: testing-stoplight
+  version: '1.0'
+  summary: Cars API
+  description: This is an api for cars
+  contact:
+    name: Adam Curzon
+    url: curzon.org
+    email: adam@curzon.org
+servers:
+  - url: 'https://cars.curzon.org'
+    description: Curzon Digital Servers
+paths:
+  '/car/{carId}':
+    parameters:
+      - schema:
+          type: string
+        name: carId
+        in: path
+        required: true
+    get:
+      summary: Get a car
+      tags: []
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Not Found
+      operationId: get-car-carId
+      description: Gets a full car object from id
+    post:
+      summary: Create a car
+      operationId: post-car-carId
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+      description: Creates a car object in the api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                '':
+                  type: string
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Car'
+        description: ''
+components:
+  schemas:
+    Car:
+      title: Car
+      x-stoplight:
+        id: ezghubo9bthfv
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        colour:
+          type: string
+        engine:
+          $ref: '#/components/schemas/Engine'
+    Engine:
+      title: Engine
+      x-stoplight:
+        id: no8v31vy7f9d9
+      type: object
+      properties:
+        id:
+          type: string
+        size:
+          type: number
+          example: 1
+        cc:
+          type: integer
+          example: 1000
+        mpg:
+          type: integer
+          example: 23
