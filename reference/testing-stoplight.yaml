@@ -39,8 +39,12 @@ paths:
       summary: Create a car
       operationId: post-car-carId
       responses:
-        '200':
-          description: OK
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Car'
         '400':
           description: Bad Request
       description: Creates a car object in the api
@@ -52,9 +56,6 @@ paths:
               properties:
                 '':
                   type: string
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/Car'
         description: ''
 components:
   schemas:
