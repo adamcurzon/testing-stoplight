@@ -8,7 +8,7 @@ info:
   description: This is an api for cars
   contact:
     name: Adam Curzon
-    url: curzon.org
+    url: 'https://curzon.org'
     email: adam@curzon.org
 servers:
   - url: 'https://cars.curzon.org'
